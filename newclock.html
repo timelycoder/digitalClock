@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Making clock</title>
+  <style>
+    h1{
+      font-size: 60px;
+      text-align: center;
+      margin-top: 70px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="clock"></h1>
+  <script>
+   function clock(){
+    let time=new Date();
+    let hours=time.getHours();
+    let minute=time.getMinutes();
+   let second=time.getUTCSeconds();
+  //  console.log(hours,minute,second,time)
+
+    let AmPm="AM"
+    if (hours>12){
+      AmPm="PM"
+    }
+    
+    if(hours>12){
+      hours=hours-12;
+    }
+    if (hours==0){
+      hours=12;
+    }
+
+  document.getElementById('clock').innerText=hours+":"+ minute+":"+second+":"+ AmPm
+   }
+setInterval(clock,1000);
+
+    
+  </script>
+</body>
+</html>
